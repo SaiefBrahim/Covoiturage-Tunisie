@@ -37,6 +37,9 @@ body{
     background-color: $primary !important;
     transition: background-color 400ms linear;
 }
+
+
+
 @media screen and (max-width: 480px) {
     .carousel-caption{
         left: 0!important;
@@ -58,8 +61,8 @@ body{
         margin: 0 !important;
     }
     .btn-custom{
-        padding:0 7.5rem !important ;
-        margin-top: 1.6rem !important
+        margin-top: 1.6rem !important;
+        width: 100%;
     }
     }
     @media screen and (min-width: 480px) {
@@ -72,8 +75,11 @@ body{
         width: 100%;
     }
     .btn-custom{
-        padding:0 8rem !important ;
-        margin-top: 1.8rem !important
+        margin-top: 1.8rem !important;
+        width: 100%;
+    }
+    .adsdetailcss{
+        margin-top: 7rem;
     }
     }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');

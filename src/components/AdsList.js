@@ -72,13 +72,19 @@ const AdsList = () => {
             vname
             climation
             luggage
+            sits
           }
         }
       }
     }
   `;
   const { loading, error, data } = useQuery(GetRideFrom);
-  if (loading) return <Spinner animation="border" size="xl" />;
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center ">
+        <Spinner animation="border" size="lg" className="text-light my-5" />
+      </div>
+    );
   if (error) return <h2>Error 403</h2>;
 
   const filtred = data.ads.data.filter(
@@ -184,7 +190,7 @@ const AdsList = () => {
                     {el.attributes.name}
                   </Card.Title>
                   <Card.Text className="text-light text-center mb-1 fs-6">
-                    Voiture: {el.attributes.vname}
+                    Places disponibles: <strong>{el.attributes.sits}</strong>
                   </Card.Text>
                   <Card.Text className="text-light text-center mb-1 fs-6">
                     {`Départ: ${el.attributes.ddate.slice(0, 10)} `}

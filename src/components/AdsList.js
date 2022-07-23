@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Form, Button, Card, Spinner } from "react-bootstrap";
 import { useQuery, gql } from "@apollo/client";
+import blankprofile from "../img/blankprofile.png";
 import {
   MdOutlineAccessTime,
   MdOutlineLuggage,
@@ -78,14 +79,28 @@ const AdsList = () => {
       }
     }
   `;
-  const { loading, error, data } = useQuery(GetRideFrom);
+
+  const { loading, error, data, refetch } = useQuery(GetRideFrom);
+
+  // *this use effect is to refetch data when the compoenent didmount (refetch is only for apolloClient and GraphQl)
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
   if (loading)
     return (
       <div className="d-flex justify-content-center ">
         <Spinner animation="border" size="lg" className="text-light my-5" />
       </div>
     );
-  if (error) return <h2>Error 403</h2>;
+  if (error)
+    return (
+      <div className="d-flex justify-content-center text-light my-4 fs-2 text-center">
+        .تستهبل؟ حل الباك اند
+        <br />
+        Are you kidding? Run the fucking backEnd.
+      </div>
+    );
 
   const filtred = data.ads.data.filter(
     (el) =>
@@ -98,7 +113,6 @@ const AdsList = () => {
     setRideTo("");
     setRideDate("");
   };
-  console.log(filtred);
   return (
     <>
       <Form className="bg-dark">
@@ -183,7 +197,11 @@ const AdsList = () => {
                     objectFit: "cover",
                     objectPosition: "100% 0",
                   }}
-                  src={`http://192.168.1.149:1337${el.attributes.photo.data.attributes.url}`}
+                  src={
+                    el.attributes.photo.data
+                      ? `http://localhost:1337${el.attributes.photo.data.attributes.url}`
+                      : blankprofile
+                  }
                 />
                 <Card.Body>
                   <Card.Title className="text-center text-light">

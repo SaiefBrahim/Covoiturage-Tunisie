@@ -38,7 +38,13 @@ body{
     transition: background-color 400ms linear;
 }
 
-
+.form-switch .form-check-input{
+    width: 5rem !important;
+    height: 2rem !important ;
+}
+.form-switch{
+    margin: 0 auto;
+}
 
 @media screen and (max-width: 480px) {
     .carousel-caption{

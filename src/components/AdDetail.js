@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Spinner, Button } from "react-bootstrap";
 import { FaPhoneAlt } from "react-icons/fa";
+import blankprofile from "../img/blankprofile.png";
 import {
   TbSnowflake,
   TbSnowflakeOff,
@@ -54,7 +55,7 @@ const AdDetail = () => {
   return (
     <div className="adsdetailcss">
       {adDet.map((el, i) => (
-        <div className="container">
+        <div key={el} className="container">
           <div className="row p-4 pb-0 pe-lg-0 pt-lg-4 align-items-center rounded-4 bg-dark shadow-lg">
             <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
               <h1 className="display-4 fw-bold lh-1 lg-text-center text-light">
@@ -108,7 +109,11 @@ const AdDetail = () => {
             <div className="col-lg-4 offset-lg-1 overflow-hidden shadow-lg">
               <img
                 className="rounded-3 mb-5"
-                src={`http://192.168.1.149:1337${el.attributes.photo.data.attributes.url}`}
+                src={
+                  el.attributes.photo.data
+                    ? `http://localhost:1337${el.attributes.photo.data.attributes.url}`
+                    : blankprofile
+                }
                 alt="Profile"
                 style={{
                   width: "20rem",

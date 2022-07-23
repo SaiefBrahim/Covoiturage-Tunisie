@@ -8,12 +8,16 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Footer from "./components/Footer";
 import AdDetail from "./components/AdDetail";
 import NewAd from "./components/NewAd";
-
+import { createUploadLink } from "apollo-upload-client";
 function App() {
   const client = new ApolloClient({
-    uri: "http://192.168.1.149:1337/graphql",
     cache: new InMemoryCache(),
+    uri: "http://localhost:1337/graphql",
+    link: createUploadLink({
+      uri: "http://localhost:1337/graphql",
+    }),
   });
+
   return (
     <ApolloProvider client={client}>
       <Header />

@@ -63,7 +63,7 @@ const NewAd = () => {
   `;
   const gov = [
     "Ariana",
-    "Béja",
+    "Beja",
     "Ben_Arous",
     "Bizerte",
     "Gabes",
@@ -75,11 +75,37 @@ const NewAd = () => {
     "La_Manouba",
     "Le_Kef",
     "Mahdia",
-    "Médenine",
+    "Medenine",
     "Monastir",
     "Nabeul",
     "Sfax",
     "Sidi_Bouzid",
+    "Siliana",
+    "Sousse",
+    "Tataouine",
+    "Tozeur",
+    "Tunis",
+    "Zaghouan",
+  ];
+  const govUi = [
+    "Ariana",
+    "Béja",
+    "Ben Arous",
+    "Bizerte",
+    "Gabes",
+    "Gafsa",
+    "Jendouba",
+    "Kairouan",
+    "Kasserine",
+    "Kebili",
+    "La Manouba",
+    "Le Kef",
+    "Mahdia",
+    "Médenine",
+    "Monastir",
+    "Nabeul",
+    "Sfax",
+    "Sidi Bouzid",
     "Siliana",
     "Sousse",
     "Tataouine",
@@ -249,9 +275,9 @@ const NewAd = () => {
                 <option value="" disabled>
                   Départ
                 </option>
-                {gov.map((el) => (
-                  <option key={el} value={el}>
-                    {el}
+                {gov.map((el, i) => (
+                  <option key={i} value={el}>
+                    {govUi[i]}
                   </option>
                 ))}
               </Form.Select>
@@ -275,9 +301,9 @@ const NewAd = () => {
                 <option value="" disabled>
                   Arrivé
                 </option>
-                {gov.map((el) => (
-                  <option key={el} value={el}>
-                    {el}
+                {gov.map((el, i) => (
+                  <option key={i} value={el}>
+                    {govUi[i]}
                   </option>
                 ))}
               </Form.Select>

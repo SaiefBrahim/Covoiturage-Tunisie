@@ -28,7 +28,7 @@ const AdsList = () => {
 
   const gov = [
     "Ariana",
-    "Béja",
+    "Beja",
     "Ben_Arous",
     "Bizerte",
     "Gabes",
@@ -40,11 +40,37 @@ const AdsList = () => {
     "La_Manouba",
     "Le_Kef",
     "Mahdia",
-    "Médenine",
+    "Medenine",
     "Monastir",
     "Nabeul",
     "Sfax",
     "Sidi_Bouzid",
+    "Siliana",
+    "Sousse",
+    "Tataouine",
+    "Tozeur",
+    "Tunis",
+    "Zaghouan",
+  ];
+  const govUi = [
+    "Ariana",
+    "Béja",
+    "Ben Arous",
+    "Bizerte",
+    "Gabes",
+    "Gafsa",
+    "Jendouba",
+    "Kairouan",
+    "Kasserine",
+    "Kebili",
+    "La Manouba",
+    "Le Kef",
+    "Mahdia",
+    "Médenine",
+    "Monastir",
+    "Nabeul",
+    "Sfax",
+    "Sidi Bouzid",
     "Siliana",
     "Sousse",
     "Tataouine",
@@ -128,9 +154,9 @@ const AdsList = () => {
               <option value="" disabled>
                 Départ
               </option>
-              {gov.map((el) => (
-                <option key={el} value={el}>
-                  {el}
+              {gov.map((el, i) => (
+                <option key={i} value={el}>
+                  {govUi[i]}
                 </option>
               ))}
             </Form.Select>
@@ -148,7 +174,7 @@ const AdsList = () => {
               </option>
               {gov.map((el, i) => (
                 <option key={i} value={el}>
-                  {el}
+                  {govUi[i]}
                 </option>
               ))}
             </Form.Select>
